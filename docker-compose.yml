@@ -1,0 +1,58 @@
+version: "2"
+
+services:
+  wordpress_dev:
+    image: "jamesc/wordpressdev-php7.2:latest"
+    container_name: "wordpressdev-php7.2-webdev"
+    ports:
+      - "8100:80"
+    environment:
+      VIRTUAL_HOST: "wordpress.dev"
+      WORDPRESS_ACTIVATE_PLUGINS: "" # plugin folder relative to /wp-content/plugins/
+      WORDPRESS_ACTIVATE_THEME: ""   # theme folder relative to /wp-content/themes/
+      WORDPRESS_SITE_TITLE: "wordpressdev"
+      WORDPRESS_SITE_URL: "http://wordpress.dev"
+      # XDEBUG_CONFIG: "remote_host=${DOCKER_LOCAL_IP} idekey=xdebug"
+      WORDPRESS_DB_HOST: "wordpressdev-php7.2-mysqldev"
+      WORDPRESS_DB_USER: "root"
+      WORDPRESS_DB_PASSWORD: ""
+      WORDPRESS_DB_NAME: "wordpress"
+    depends_on:
+      - "mysql_wordpressdev"
+    networks:
+      - "front"
+      - "back"
+    volumes:
+      - "./src/:/var/www/html/"
+
+  mysql_wordpressdev:
+    image: "mysql:5.7"
+    container_name: "wordpressdev-php7.2-mysqldev"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "wordpress"
+      MYSQL_ROOT_PASSWORD: ""
+    ports:
+      - "3310:3306"
+    networks:
+      - "back"
+
+  phpmyadmin_wordpressdev:
+    image: "phpmyadmin/phpmyadmin"
+    container_name: "wordpressdev-php7.2-phpmyadmindev"
+    links:
+      - mysql_wordpressdev
+    environment:
+      PMA_HOST: "wordpressdev-php7.2-mysqldev"
+      PMA_PORT: "3310"
+      MYSQL_USERNAME: "root"
+      MYSQL_ROOT_PASSWORD: ""
+    restart: "always"
+    ports:
+      - "8101:80"
+    networks:
+      - "back"
+
+networks:
+  front: {}
+  back: {}
