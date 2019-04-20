@@ -37,21 +37,21 @@ services:
     networks:
       - "back"
 
-  phpmyadmin_wordpressdev:
-    image: "phpmyadmin/phpmyadmin"
-    container_name: "wordpressdev-php7.2-phpmyadmindev"
-    links:
-      - mysql_wordpressdev
-    environment:
-      PMA_HOST: "wordpressdev-php7.2-mysqldev"
-      PMA_PORT: "3310"
-      MYSQL_USERNAME: "root"
-      MYSQL_ROOT_PASSWORD: ""
-    restart: "always"
-    ports:
-      - "8101:80"
-    networks:
-      - "back"
+#  personally I prefer to use Heidi SQL but you could add a phpmyadmin container
+  # phpmyadmin_wordpressdev:
+  #   image: "phpmyadmin/phpmyadmin"
+  #   container_name: "wordpressdev-php7.2-phpmyadmindev"
+  #   links:
+  #     - "mysql_wordpressdev"
+  #   environment:
+  #     MYSQL_USER: "root"
+  #     MYSQL_PASSWORD: ""
+  #     MYSQL_ROOT_PASSWORD: ""
+  #   restart: "always"
+  #   ports:
+  #     - "8101:80"
+  #   networks:
+  #     - "back"
 
 networks:
   front: {}
