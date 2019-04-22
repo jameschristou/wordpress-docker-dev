@@ -5,7 +5,7 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
 
 * [Docker](https://www.docker.com/)
 * [docker-compose](https://docs.docker.com/compose/)
-* Visual Studio Code
+* [Visual Studio Code](https://code.visualstudio.com/)
 * PHP Debug Extension for Visual Studio Code
 * PHP Extension Pack for Visual Studio Code
 * PHP Intellisense for Visual Studio Code
