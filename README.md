@@ -5,9 +5,10 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
 * [Docker](https://www.docker.com/)
 * [docker-compose](https://docs.docker.com/compose/)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* PHP Debug Extension for Visual Studio Code
-* PHP Extension Pack for Visual Studio Code
-* PHP Intellisense for Visual Studio Code
+* [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) extension for Visual Studio Code
+* [PHP Extension Pack](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-pack) extension for Visual Studio Code
+* [PHP Intellisense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense) extension for Visual Studio Code. This extension requires PHP to be installed on your machine.
+
 
 ## Setup to Debug with VSCode
 1. Create docker image using command `docker build -t jamesc/wordpressdev-php7.2 .`
