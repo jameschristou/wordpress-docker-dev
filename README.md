@@ -2,7 +2,6 @@
 Docker file &amp; compose for setting up full wordpress dev environment capable of debugging with VSCode and XDebug
 
 ## Prerequisites
-
 * [Docker](https://www.docker.com/)
 * [docker-compose](https://docs.docker.com/compose/)
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -11,7 +10,6 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
 * PHP Intellisense for Visual Studio Code
 
 ## Setup to Debug with VSCode
-
 1. Create docker image using command `docker build -t jamesc/wordpressdev-php7.2 .`
 2. Copy `docker-compose.yml` to folder where you wish to have the files mounted
 3. Modify the volume mount config for the `wordpress_dev` service in `docker-compose.yml` to your requirements. If you want the entire Wordpress source mounted then leave as is.
@@ -46,6 +44,9 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
 }
 ```
 7. Now you can debug! Add a breakpoint, run some code and then watch the magic happen!
+
+## Querying the MySQL DB
+I did not include `phpMyAdmin` in the docker compose because I find it such a painful tool to use. For dev, I prefer to use something like [HeidiSQL](https://www.heidisql.com/download.php) or whatever your favourite client side MySQL tool is.
 
 ## Troubleshooting
 XDebug
