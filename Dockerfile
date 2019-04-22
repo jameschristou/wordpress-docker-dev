@@ -14,7 +14,9 @@ RUN pecl install memcached xdebug \
 RUN { \
       echo ''; \
       echo 'xdebug.remote_enable=1'; \
+      echo 'xdebug.remote_autostart=1'; \
       echo 'xdebug.remote_port="9000"'; \
+      echo 'xdebug.remote_host="host.docker.internal"'; \
     } >> /usr/local/etc/php/conf.d/xdebug.ini
 
 VOLUME /var/www/html
