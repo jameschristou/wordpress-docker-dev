@@ -8,11 +8,8 @@ services:
       - "8100:80"
     environment:
       VIRTUAL_HOST: "wordpress.dev"
-      WORDPRESS_ACTIVATE_PLUGINS: "" # plugin folder relative to /wp-content/plugins/
-      WORDPRESS_ACTIVATE_THEME: ""   # theme folder relative to /wp-content/themes/
       WORDPRESS_SITE_TITLE: "wordpressdev"
       WORDPRESS_SITE_URL: "http://wordpress.dev"
-      # XDEBUG_CONFIG: "remote_host=${DOCKER_LOCAL_IP} idekey=xdebug"
       WORDPRESS_DB_HOST: "wordpressdev-php7.2-mysqldev"
       WORDPRESS_DB_USER: "root"
       WORDPRESS_DB_PASSWORD: ""
@@ -23,7 +20,7 @@ services:
       - "front"
       - "back"
     volumes:
-      - "./src/:/var/www/html/"
+      - "./wp:/var/www/html/"
 
   mysql_wordpressdev:
     image: "mysql:5.7"
