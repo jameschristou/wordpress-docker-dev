@@ -11,12 +11,12 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
 
 
 ## Setup to Debug with VSCode
-1. Create docker image using command `docker build -t jamesc/wordpressdev-php7.2 .`
+1. Create docker image using command `docker build -t jamesc/wordpressdev-php7.3 .`
 2. Copy `docker-compose.yml` to folder where you wish to have the files mounted
 3. Modify the volume mount config for the `wordpress_dev` service in `docker-compose.yml` to your requirements. If you want the entire Wordpress source mounted then leave as is.
 4. Run docker compose using the command `docker-compose -f docker-compose.yml up`. This will start the Wordpress and MySQL containers.
 5. Open the Wordpress source in Visual Studio Code (Open Folder)
-6. Go to Debug->Open Configurations and select PHP (you must have the PHP Debug extension installed). Ensure the configuration looks something like this. The pathMappings setting may need to be modified
+6. Go to Debug->Open Configurations and select PHP (you must have the PHP Debug extension installed). Ensure the configuration looks something like this. The pathMappings setting may need to be modified depending on what solution or folder you have loaded in Visual Studio Code.
 ```
 {
     // Use IntelliSense to learn about possible attributes.
@@ -44,6 +44,13 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
     ]
 }
 ```
+For example, if you are using Visual Studio Code to open a particular plugin within the plugins folder, then pathMappings might look like
+```
+"pathMappings": {
+    "/var/www/html/wp-content/plugins/my-plugin/": "${workspaceFolder}"
+},
+```
+You are basically telling Visual Studio Code where the workspace folder is in relation to the Wordpress docker environment.
 7. Now you can debug! Add a breakpoint, run some code and then watch the magic happen!
 
 ## Querying the MySQL DB
