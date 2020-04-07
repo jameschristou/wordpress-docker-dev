@@ -1,6 +1,6 @@
 # Used to create the base image for our WP CMS dev environments
 
-FROM wordpress:5.3.2-php7.3-apache
+FROM wordpress:5.4-php7.3-apache
 
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends less libmemcached-dev libxml2-dev libz-dev \
