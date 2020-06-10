@@ -11,7 +11,7 @@ Docker file &amp; compose for setting up full wordpress dev environment capable 
 
 
 ## Setup to Debug with VSCode
-1. Create docker image using command `docker build -t jamesc/wordpressdev-php7.3 .`
+1. Create docker image using command `docker build -t jamesc/wordpressdev-php7.4 .`
 2. Copy `docker-compose.yml` to folder where you wish to have the files mounted
 3. Modify the volume mount config for the `wordpress_dev` service in `docker-compose.yml` to your requirements. If you want the entire Wordpress source mounted then leave as is.
 4. Run docker compose using the command `docker-compose -f docker-compose.yml up`. This will start the Wordpress and MySQL containers.
